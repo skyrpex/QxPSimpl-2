@@ -3,7 +3,7 @@
 #include <QPolygonF>
 #include <QVector>
 
-QVector<qreal> toVector(const QPolygonF& polygon)
+static QVector<qreal> toVector(const QPolygonF& polygon)
 {
     QVector<qreal> vector;
     for(const auto point : polygon) {
@@ -12,7 +12,7 @@ QVector<qreal> toVector(const QPolygonF& polygon)
     return vector;
 }
 
-QPolygonF fromVector(const QVector<qreal> &vector)
+static QPolygonF fromVector(const QVector<qreal> &vector)
 {
     QPolygonF polygon;
     for(int i = 0; i < vector.count(); i += 2) {
@@ -29,7 +29,7 @@ QPolygonF QxPSimpl::simplifyNthPoint(const QPolygonF &polygon, uint n)
     return fromVector(simplified);
 }
 
-QPolygonF simplifyRadialDistance(const QPolygonF &polygon, qreal tolerance)
+QPolygonF QxPSimpl::simplifyRadialDistance(const QPolygonF &polygon, qreal tolerance)
 {
     QVector<qreal> simplified;
     const auto vector = toVector(polygon);
@@ -37,7 +37,7 @@ QPolygonF simplifyRadialDistance(const QPolygonF &polygon, qreal tolerance)
     return fromVector(simplified);
 }
 
-QPolygonF simplifyPerpendicularDistance(const QPolygonF &polygon, qreal tolerance, uint n = 0)
+QPolygonF QxPSimpl::simplifyPerpendicularDistance(const QPolygonF &polygon, qreal tolerance, uint n)
 {
     QVector<qreal> simplified;
     const auto vector = toVector(polygon);
@@ -45,7 +45,7 @@ QPolygonF simplifyPerpendicularDistance(const QPolygonF &polygon, qreal toleranc
     return fromVector(simplified);
 }
 
-QPolygonF simplifyReumannWitkam(const QPolygonF &polygon, qreal tolerance)
+QPolygonF QxPSimpl::simplifyReumannWitkam(const QPolygonF &polygon, qreal tolerance)
 {
     QVector<qreal> simplified;
     const auto vector = toVector(polygon);
@@ -53,7 +53,7 @@ QPolygonF simplifyReumannWitkam(const QPolygonF &polygon, qreal tolerance)
     return fromVector(simplified);
 }
 
-QPolygonF simplifyOpheim(const QPolygonF &polygon, qreal minTolerance, qreal maxTolerance)
+QPolygonF QxPSimpl::simplifyOpheim(const QPolygonF &polygon, qreal minTolerance, qreal maxTolerance)
 {
     QVector<qreal> simplified;
     const auto vector = toVector(polygon);
@@ -61,7 +61,7 @@ QPolygonF simplifyOpheim(const QPolygonF &polygon, qreal minTolerance, qreal max
     return fromVector(simplified);
 }
 
-QPolygonF simplifyLang(const QPolygonF &polygon, qreal tolerance, uint lookAhead)
+QPolygonF QxPSimpl::simplifyLang(const QPolygonF &polygon, qreal tolerance, uint lookAhead)
 {
     QVector<qreal> simplified;
     const auto vector = toVector(polygon);
@@ -69,7 +69,7 @@ QPolygonF simplifyLang(const QPolygonF &polygon, qreal tolerance, uint lookAhead
     return fromVector(simplified);
 }
 
-QPolygonF simplifyDouglasPeucker(const QPolygonF &polygon, qreal tolerance)
+QPolygonF QxPSimpl::simplifyDouglasPeucker(const QPolygonF &polygon, qreal tolerance)
 {
     QVector<qreal> simplified;
     const auto vector = toVector(polygon);
@@ -77,7 +77,7 @@ QPolygonF simplifyDouglasPeucker(const QPolygonF &polygon, qreal tolerance)
     return fromVector(simplified);
 }
 
-QPolygonF simplifyDouglasPeuckerN(const QPolygonF &polygon, uint vertices)
+QPolygonF QxPSimpl::simplifyDouglasPeuckerN(const QPolygonF &polygon, uint vertices)
 {
     QVector<qreal> simplified;
     const auto vector = toVector(polygon);

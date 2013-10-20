@@ -1,0 +1,2 @@
+INCLUDEPATH += /usr/local/QxPSimpl/include
+LIBS += -L/usr/local/QxPSimpl/lib -lQxPSimpl
