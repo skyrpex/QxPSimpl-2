@@ -1,8 +1,8 @@
 QT = core gui
 TARGET = QxPSimpl
 TEMPLATE = lib
-DEFINE += QXPSIMPL_LIBRARY
-DESTIR = $$PWD/bin
+DEFINES += QXPSIMPL_LIBRARY
+DESTDIR = $$PWD/bin
 CONFIG += C++11
 
 SOURCES += src/qxpsimpl.cpp
